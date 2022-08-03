@@ -9,8 +9,9 @@ gp (git push)
 ```
 
 Befehle
-*test*
+
 ```
  <br /> (Neue Zeile)
 **Text** (Fette schrift)
+*Text* (Schräge schrift)
  ```
