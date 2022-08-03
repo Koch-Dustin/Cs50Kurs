@@ -12,5 +12,5 @@ Befehle
 
 ```
  <br /> (Neue Zeile)
-
+*Text* (Fette schrift)
  ```
