@@ -52,9 +52,6 @@ int main(void) {
             printf("Invalid\n");
         }
 
-        printf("%i\n", count);
-        printf("%i\n",firstDigit);
-
     }else {
         printf("Invalid");
     }
