@@ -44,15 +44,15 @@ int main(void) {
     if(sum % 10 == 0) {
         if(count == 16 && (firstTwoDigits == 51 || firstTwoDigits == 52 || firstTwoDigits == 53 || firstTwoDigits == 54 || firstTwoDigits == 55)) {
             printf("MasterCard\n");
-        }else if((firstTwoDigits == 34 || firstTwoDigits == 37) && count == 15) {
+        } else if((firstTwoDigits == 34 || firstTwoDigits == 37) && count == 15) {
             printf("AmericanExpress\n");
-        }else if((count == 13 || count == 16) && firstDigit == 4) {
+        } else if((count == 13 || count == 16) && firstDigit == 4) {
             printf("Visa\n");
-        }else {
+        } else {
             printf("Invalid\n");
         }
 
-    }else {
+    } else {
         printf("Invalid\n");
     }
 
