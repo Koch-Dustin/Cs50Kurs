@@ -2,15 +2,14 @@
 #include <stdio.h>
 
 int main(void) {
-
-    long long ccard;
+    long ccard;
     long divisor = 10;
 
     do {
         ccard = get_long_long("Credit: ");
     } while (ccard <= 0);
     
-    long long workingCC = ccard;
+    long workingCC = ccard;
     int sum = 0;
     int count = 0;
 
@@ -34,26 +33,36 @@ int main(void) {
         count++;
     }
     
-    for(int i = 0; i < count - 2; i++) {
+    for (int i = 0; i < count - 2; i++) {
         divisor = divisor * 10;
     }
 
     int firstDigit = ccard / divisor;
     int firstTwoDigits = ccard / (divisor / 10); 
 
-    if(sum % 10 == 0) {
-        if(count == 16 && (firstTwoDigits == 51 || firstTwoDigits == 52 || firstTwoDigits == 53 || firstTwoDigits == 54 || firstTwoDigits == 55)) {
+    if (sum % 10 == 0) {
+
+        bool CardIsMasterCard = count == 16 && (firstTwoDigits == 51 || firstTwoDigits == 52 || firstTwoDigits == 53 || firstTwoDigits == 54 || firstTwoDigits == 55);
+        if(CardIsMasterCard) {
             printf("MasterCard\n");
-        } else if((firstTwoDigits == 34 || firstTwoDigits == 37) && count == 15) {
-            printf("AmericanExpress\n");
-        } else if((count == 13 || count == 16) && firstDigit == 4) {
-            printf("Visa\n");
-        } else {
-            printf("Invalid\n");
+            return 0;
         }
+        
+        bool CardIsAmericanExpress = (firstTwoDigits == 34 || firstTwoDigits == 37) && count == 15;
+        if(CardIsAmericanExpress) {
+            printf("AmericanExpress\n");
+            return 0;
+        }
+        
+        bool CardIsVisa = (count == 13 || count == 16) && firstDigit == 4;
+        if(CardIsVisa) {
+            printf("Visa\n");
+            return 0;
+        }
+
+        printf("Invalid\n");
 
     } else {
         printf("Invalid\n");
     }
-
 }
