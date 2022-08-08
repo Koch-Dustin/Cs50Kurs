@@ -7,8 +7,7 @@ int calculate_dimes(int cents);
 int calculate_nickels(int cents);
 int calculate_pennies(int cents);
 
-int main(void)
-{
+int main(void) {
     int cents = get_cents();
 
     int quarters = calculate_quarters(cents);
@@ -28,35 +27,36 @@ int main(void)
     printf("%i\n", coins);
 }
 
-int get_cents(void)
-{
+int get_cents(void) {
     int n;
+
     do {
         n = get_int("Anzahl der Münzen: ");
     } while (n < 0);
+
     return (n);
 }
 
-int calculate_quarters(int cents)
-{
+int calculate_quarters(int cents) {
     int quarter = 25;
+
     return cents / quarter;
 }
 
-int calculate_dimes(int cents)
-{
+int calculate_dimes(int cents) {
     int dimes = 10;
+
     return cents / dimes;
 }
 
-int calculate_nickels(int cents)
-{
+int calculate_nickels(int cents) {
     int nickels = 5;
+
     return cents / nickels;
 }
 
-int calculate_pennies(int cents)
-{
+int calculate_pennies(int cents) {
     int pennies = 1;
+
     return cents / pennies;
 }
