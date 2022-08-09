@@ -26,7 +26,6 @@ int main(int argc, string argv[]) {
             printf("Key must only contain alphabetic characters.\n");
             return 1;
         }
-
     }
 
     for(int j = 0, n = strlen(argv[1]); j < n; j++) {
@@ -44,13 +43,16 @@ int main(int argc, string argv[]) {
     }
 
     string plain = get_string("Plainetext: ");
-
+ 
     printf("ciphertext: ");
     for(int w = 0, x = strlen(plain); w < x; w++) {
-        if(isalpha(plain[w]) && isupper(plain[w])) {
+        bool CharacterIsUppercase = isalpha(plain[w]) && isupper(plain[w]);
+        bool CharacterisLowercase = isalpha(plain[w]) && islower(plain[w]);
+        
+        if(CharacterIsUppercase) {
             int upper = (plain[w] - 65);
             printf("%c", toupper(argv[1][upper]));
-        }else if(isalpha(plain[w]) && islower(plain[w])) {
+        }else if(CharacterisLowercase) {
             int lower = (plain[w] - 97);
             printf("%c", tolower(argv[1][lower]));
         }else {
