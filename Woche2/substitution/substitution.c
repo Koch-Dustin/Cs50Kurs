@@ -19,14 +19,14 @@ int main(int argc, string argv[]) {
     }
 
     for (int i = 0, n = strlen(argv[1]); i < n; i++) {
-        if(isalpha(argv[1][i])) {
+        bool CurrentLetterIsAlphabetic = isalpha(argv[1][i]);
+        if(CurrentLetterIsAlphabetic) {
             count_key_characters++;
         } else if(count_key_characters != strlen(argv[1])) {
             printf("Key must only contain alphabetic characters.\n");
             return 1;
         }
 
-        
     }
 
     for(int j = 0, n = strlen(argv[1]); j < n; j++) {
@@ -36,7 +36,6 @@ int main(int argc, string argv[]) {
             }
             
         }
-        
         
         if(count_repeated_characters != 0) {
                 printf("Key must not contain repeated characters.\n");
