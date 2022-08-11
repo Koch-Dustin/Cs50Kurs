@@ -20,25 +20,21 @@ int main(int argc, string argv[]) {
 
     for (int i = 0, n = strlen(argv[1]); i < n; i++) {
         bool CurrentLetterIsAlphabetic = isalpha(argv[1][i]);
-        if(CurrentLetterIsAlphabetic) {
-            count_key_characters++;
-        } else if(count_key_characters != strlen(argv[1])) {
+        
+        if(!CurrentLetterIsAlphabetic) {
             printf("Key must only contain alphabetic characters.\n");
             return 1;
         }
+        count_key_characters++;
+
     }
 
     for(int j = 0, n = strlen(argv[1]); j < n; j++) {
         for(int k = j + 1; k < n; k++) {
             if(tolower(argv[1][j]) == tolower(argv[1][k])) {
-                count_repeated_characters++;
-            }
-            
-        }
-        
-        if(count_repeated_characters != 0) {
                 printf("Key must not contain repeated characters.\n");
                 return 1;
+            }
         }
     }
 
@@ -46,8 +42,8 @@ int main(int argc, string argv[]) {
  
     printf("ciphertext: ");
     for(int w = 0, x = strlen(plain); w < x; w++) {
-        bool CharacterIsUppercase = isalpha(plain[w]) && isupper(plain[w]);
-        bool CharacterisLowercase = isalpha(plain[w]) && islower(plain[w]);
+        bool CharacterIsUppercase = isupper(plain[w]);
+        bool CharacterisLowercase = islower(plain[w]);
         
         if(CharacterIsUppercase) {
             int upper = (plain[w] - 65);
