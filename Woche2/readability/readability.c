@@ -6,17 +6,17 @@
 
 int main(void) {
 
-    string UserText = get_string("Text: ");
+    string user_text = get_string("Text: ");
 
     int letters = 0;
     int words = 1;
     int sentences = 0;
 
-    for (int i = 0; i < strlen(UserText); i++) {
-        bool character_is_empty = UserText[i] == ' ';
-        bool character_is_special = UserText[i] == '.' || UserText[i] == '!' || UserText[i] == '?';
+    for (int i = 0; i < strlen(user_text); i++) {
+        bool character_is_empty = user_text[i] == ' ';
+        bool character_is_special = user_text[i] == '.' || user_text[i] == '!' || user_text[i] == '?';
         
-        if (isalpha(UserText[i])) {
+        if (isalpha(user_text[i])) {
             letters++;
         } else if (character_is_empty) {
             words++;
