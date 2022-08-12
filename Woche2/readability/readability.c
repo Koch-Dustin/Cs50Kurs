@@ -13,14 +13,14 @@ int main(void) {
     int sentences = 0;
 
     for (int i = 0; i < strlen(UserText); i++) {
-        bool CharacterIsEmpty = UserText[i] == ' ';
-        bool CharacterIsSpecial = UserText[i] == '.' || UserText[i] == '!' || UserText[i] == '?';
+        bool character_is_empty = UserText[i] == ' ';
+        bool character_is_special = UserText[i] == '.' || UserText[i] == '!' || UserText[i] == '?';
         
         if (isalpha(UserText[i])) {
             letters++;
-        } else if (CharacterIsEmpty) {
+        } else if (character_is_empty) {
             words++;
-        } else if (CharacterIsSpecial) {
+        } else if (character_is_special) {
             sentences++;
         }
 
@@ -30,11 +30,11 @@ int main(void) {
     float S = (float) sentences / (float) words * 100;
     int index = round(0.0588 * L - 0.296 * S - 15.8);
 
-    if(index < 1) {
+    if (index < 1) {
        printf("Before Grade 1\n");
-    }else if(index > 16) {
+    } else if(index > 16) {
         printf("Grade 16+\n");
-    }else {
+    } else {
         printf("Grade %i\n", index);
     }
 

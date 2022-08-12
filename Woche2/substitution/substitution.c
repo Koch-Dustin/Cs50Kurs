@@ -13,49 +13,50 @@ int main(int argc, string argv[]) {
         return 1;
     }
 
-    if(strlen(argv[1]) != 26) {
+    if (strlen(argv[1]) != 26) {
         printf("Key must contain 26 characters.\n");
         return 1;
     }
 
     for (int i = 0, n = strlen(argv[1]); i < n; i++) {
-        bool CurrentLetterIsAlphabetic = isalpha(argv[1][i]);
-        
-        if(!CurrentLetterIsAlphabetic) {
+        bool current_letter_is_alphabetic = isalpha(argv[1][i]);
+                
+        if (!current_letter_is_alphabetic) {
             printf("Key must only contain alphabetic characters.\n");
             return 1;
         }
+        
         count_key_characters++;
-
     }
 
-    for(int j = 0, n = strlen(argv[1]); j < n; j++) {
-        for(int k = j + 1; k < n; k++) {
-            if(tolower(argv[1][j]) == tolower(argv[1][k])) {
+    for (int j = 0, n = strlen(argv[1]); j < n; j++) {
+        for (int k = j + 1; k < n; k++) {
+            if (tolower(argv[1][j]) == tolower(argv[1][k])) {
                 printf("Key must not contain repeated characters.\n");
                 return 1;
             }
         }
     }
 
-    string plain = get_string("Plainetext: ");
+    string plain = get_string("Plaintext: ");
  
     printf("ciphertext: ");
-    for(int w = 0, x = strlen(plain); w < x; w++) {
-        bool CharacterIsUppercase = isupper(plain[w]);
-        bool CharacterisLowercase = islower(plain[w]);
+    for (int w = 0, x = strlen(plain); w < x; w++) {
+        bool character_is_uppercase = isupper(plain[w]);
+        bool character_is_lowercase = islower(plain[w]);
         
-        if(CharacterIsUppercase) {
+        
+        if (character_is_uppercase) {
             int upper = (plain[w] - 65);
             printf("%c", toupper(argv[1][upper]));
-        }else if(CharacterisLowercase) {
+        } else if(character_is_lowercase) {
             int lower = (plain[w] - 97);
             printf("%c", tolower(argv[1][lower]));
-        }else {
+        } else {
             printf("%c", plain[w]);
         }
     }
-
     printf("\n");
+
     return 0;
 }
