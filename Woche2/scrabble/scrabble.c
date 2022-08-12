@@ -18,12 +18,14 @@ int main(void) {
     bool score1_is_higher = score1 > score2;
     if (score1_is_higher) {
         printf("Player 1 wins!\n");
+        
         return 0;
     }
 
     bool score2_is_higher = score2 > score1;
     if (score2_is_higher) {
         printf("Player 2 wins!\n");
+
         return 0;
     }
     

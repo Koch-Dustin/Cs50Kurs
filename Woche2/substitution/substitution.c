@@ -31,7 +31,8 @@ int main(int argc, string argv[]) {
 
     for (int j = 0, n = strlen(argv[1]); j < n; j++) {
         for (int k = j + 1; k < n; k++) {
-            if (tolower(argv[1][j]) == tolower(argv[1][k])) {
+            int character_to_lower = argv[1][j]; 
+            if (tolower(character_to_lower) == tolower(character_to_lower)) {
                 printf("Key must not contain repeated characters.\n");
                 return 1;
             }
