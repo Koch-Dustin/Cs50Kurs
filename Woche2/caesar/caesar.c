@@ -6,8 +6,6 @@
 
 int main(int argc, string argv[]) {
 
-    int k;
-
     if (argc != 2) {
         printf("Usage: ./caesar key\n");
         return 1;
@@ -22,8 +20,8 @@ int main(int argc, string argv[]) {
             return 1;
         }
     
-        k = atoi(argv[1]);
     }
+    int k = atoi(argv[1]);
 
     string text = get_string("Plaintext: ");
     printf("Ciphertext: ");

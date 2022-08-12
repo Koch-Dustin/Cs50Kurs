@@ -18,18 +18,18 @@ int main(void) {
     bool score1_is_higher = score1 > score2;
     if (score1_is_higher) {
         printf("Player 1 wins!\n");
-        
-        return 0;
-    }
-
-    bool score2_is_higher = score2 > score1;
-    if (score2_is_higher) {
-        printf("Player 2 wins!\n");
 
         return 0;
+    } else if (!(score1_is_higher)) {
+        if(score1 != score2){
+            printf("Player 2 wins!\n");
+
+            return 0;
+        } 
+        printf("Tie!\n");
+
+        return 0;
     }
-    
-    printf("Tie!\n");
 }
 
 int compute_score(string word) {
@@ -37,8 +37,8 @@ int compute_score(string word) {
     
     for (int i = 0; i < strlen(word); i++) {
         if (isalpha(word[i])) {
-            char number_to_transform_letter_into_uppercase = 'A';
-            int current_letter_in_uppercase = toupper(word[i]) - number_to_transform_letter_into_uppercase;
+            char current_letter_in_uppercase = toupper(word[i]);
+            int numerical_value_of_letter = current_letter_in_uppercase - 'A';
             sum_points += POINTS[current_letter_in_uppercase];
         }
     }
