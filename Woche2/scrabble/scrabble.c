@@ -15,12 +15,12 @@ int main(void) {
     int score1 = compute_score(word1);
     int score2 = compute_score(word2);
 
-    bool score1_is_higher = score1 > score2;
-    if (score1_is_higher) {
+    if (score1 > score2) {
+        
         printf("Player 1 wins!\n");
 
         return 0;
-    } else if(score1 != score2) {
+    } else if (score1 < score2) {
         printf("Player 2 wins!\n");
 
         return 0;
@@ -33,9 +33,10 @@ int main(void) {
 
 int compute_score(string word) {
     int sum_points = 0;
-    
     for (int i = 0; i < strlen(word); i++) {
-        if (isalpha(word[i])) {
+
+        bool current_letter_is_alphabetic = isalpha(word[i]);
+        if (current_letter_is_alphabetic) {
             char current_letter_in_uppercase = toupper(word[i]);
             int numerical_value_of_letter = current_letter_in_uppercase - 'A';
             sum_points += POINTS[numerical_value_of_letter];

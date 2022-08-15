@@ -8,12 +8,14 @@ int main(int argc, string argv[]) {
     int count_key_characters = 0;
     int count_repeated_characters = 0;
 
-    if (argc != 2) {
+    bool argument_len_is_not_two = argc != 2;
+    if (argument_len_is_not_two) {
         printf("Usage: ./substitution key\n");
         return 1;
     }
 
-    if (strlen(argv[1]) != 26) {
+    bool argument_len_is_not_twenty_six = strlen(argv[1]) != 26; 
+    if (argument_len_is_not_twenty_six) {
         printf("Key must contain 26 characters.\n");
         return 1;
     }
