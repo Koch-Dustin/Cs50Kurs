@@ -1,6 +1,13 @@
 #include "helpers.h"
 #include <math.h>
 
+void grayscale();
+int limit();
+void sepia();
+void reflect();
+int getBlur();
+void blur();
+
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width]) {
     float rgbGray;
@@ -63,11 +70,11 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtBlue = image[i][width - j - 1].rgbtBlue;
             image[i][j].rgbtGreen = image[i][width - j - 1].rgbtGreen;
             image[i][j].rgbtRed = image[i][width - j - 1].rgbtRed;
-        
+
             image[i][width - j - 1].rgbtBlue = temp[0];
             image[i][width - j - 1].rgbtGreen = temp[1];
             image[i][width - j - 1].rgbtRed = temp[2];
-        
+
         }
     }
 
@@ -77,7 +84,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 int getBlur(int i, int j, int height, int width, RGBTRIPLE image[height][width] , int color_position) {
     float counter = 0;
     int sum = 0;
-    
+
     for (int k = i - 1; k <  (i + 2); k++) {
         for (int l = j - 1; l < (j + 2); l ++) {
             if(k < 0 || l < 0 || k >= height || l >= width) {
@@ -102,14 +109,14 @@ int getBlur(int i, int j, int height, int width, RGBTRIPLE image[height][width] 
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width]) {
     RGBTRIPLE copy[height][width];
-    
+
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++)
         {
             copy[i][j] = image[i][j];
         }
     }
-    
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
