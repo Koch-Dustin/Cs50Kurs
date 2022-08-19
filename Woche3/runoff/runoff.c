@@ -7,8 +7,7 @@
 
 int preferences[MAX_VOTERS][MAX_CANDIDATES];
 
-typedef struct
-{
+typedef struct {
     string name;
     int votes;
     bool eliminated;
@@ -27,30 +26,25 @@ int find_min(void);
 bool is_tie(int min);
 void eliminate(int min);
 
-int main(int argc, string argv[])
-{
-    if (argc < 2)
-    {
+int main(int argc, string argv[]) {
+    if (argc < 2) {
         printf("Usage: runoff [candidate ...]\n");
         return 1;
     }
 
     candidate_count = argc - 1;
-    if (candidate_count > MAX_CANDIDATES)
-    {
+    if (candidate_count > MAX_CANDIDATES) {
         printf("Maximum number of candidates is %i\n", MAX_CANDIDATES);
         return 2;
     }
-    for (int i = 0; i < candidate_count; i++)
-    {
+    for (int i = 0; i < candidate_count; i++) {
         candidates[i].name = argv[i + 1];
         candidates[i].votes = 0;
         candidates[i].eliminated = false;
     }
 
     voter_count = get_int("Number of voters: ");
-    if (voter_count > MAX_VOTERS)
-    {
+    if (voter_count > MAX_VOTERS) {
         printf("Maximum number of voters is %i\n", MAX_VOTERS);
         return 3;
     }

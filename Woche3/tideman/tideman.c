@@ -2,32 +2,25 @@
 #include <stdio.h>
 #include <string.h>
 
-// Max number of candidates
 #define MAX 9
 
-// preferences[i][j] is number of voters who prefer i over j
 int preferences[MAX][MAX];
 
-// locked[i][j] means i is locked in over j
 bool locked[MAX][MAX];
 bool lock = true;
 
-// Each pair has a winner, loser
-typedef struct
-{
+typedef struct {
     int winner;
     int loser;
 }
 pair;
 
-// Array of candidates
 string candidates[MAX];
 pair pairs[MAX * (MAX - 1) / 2];
 
 int pair_count;
 int candidate_count;
 
-// Function prototypes
 bool vote(int rank, string name, int ranks[]);
 void record_preferences(int ranks[]);
 void add_pairs(void);
@@ -35,8 +28,7 @@ void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
 
-int main(int argc, string argv[])
-{
+int main(int argc, string argv[]) {
 
     if (argc < 2) {
         printf("Usage: tideman [candidate ...]\n");
@@ -53,8 +45,7 @@ int main(int argc, string argv[])
     }
 
     for (int i = 0; i < candidate_count; i++) {
-        for (int j = 0; j < candidate_count; j++)
-        {
+        for (int j = 0; j < candidate_count; j++) {
             locked[i][j] = false;
         }
     }
