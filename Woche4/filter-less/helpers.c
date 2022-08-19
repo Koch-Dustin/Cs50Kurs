@@ -34,8 +34,7 @@ int limit(int RGB) {
 }
 
 // Convert image to sepia
-void sepia(int height, int width, RGBTRIPLE image[height][width])
-{
+void sepia(int height, int width, RGBTRIPLE image[height][width]) {
 
     int sepiaBlue;
     int sepiaRed;
@@ -57,8 +56,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 }
 
 // Reflect image horizontally
-void reflect(int height, int width, RGBTRIPLE image[height][width])
-{
+void reflect(int height, int width, RGBTRIPLE image[height][width]) {
     int temp[3];
 
     for (int i = 0; i < height; i++) {
