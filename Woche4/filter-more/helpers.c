@@ -115,14 +115,24 @@ void blur(int height, int width, RGBTRIPLE image[height][width]) {
 void edges(int height, int width, RGBTRIPLE image[height][width]) {
     RGBTRIPLE temp[height][width];
          
-    int GxR, GyR, GxG, GyG, GxB, GyB;
+    int GxR;
+    int GyR;
+    int GxG;
+    int GyG;
+    int GxB;
+    int GyB;
         
     int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
     int Gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
         
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            GxR = GyR = GxG = GyG = GxB = GyB= 0;
+            GxR = 0;
+            GyR = 0;
+            GxG = 0;
+            GyG = 0;
+            GxB = 0;
+            GyB = 0;
     
             for (int h = -1; h < 2; h++) {
                 for (int w = -1; w < 2; w++) {
