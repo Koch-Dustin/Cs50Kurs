@@ -87,16 +87,17 @@ bool vote(int rank, string name, int ranks[]) {
             return true;
         }
     }
+    
     return false;
 }
 
 void record_preferences(int ranks[]) {
-
     for(int i = 0; i < candidate_count; i++) {
         for(int j = i + 1; j < candidate_count; j++) {
             preferences[ranks[i]][ranks[j]] += 1;
         }
     }
+
     return;
 }
 
@@ -108,8 +109,7 @@ void add_pairs(void) {
                 pairs[pair_count].winner = i;
                 pairs[pair_count].loser = j;
                 pair_count++;
-            }
-            else if (preferences[i][j] < preferences[j][i]) {
+            } else if (preferences[i][j] < preferences[j][i]) {
                 pairs[pair_count].winner = j;
                 pairs[pair_count].loser = i;
                 pair_count++;
@@ -166,11 +166,11 @@ bool validateLock(int j) {
     if (rankpoint == j){
         lock = false;
     }
+
     return false;
 }
 
 void lock_pairs(void) {
-
     for (int i = 0; i < pair_count; i++) {
         locked[pairs[i].winner][pairs[i].loser] = true;
 

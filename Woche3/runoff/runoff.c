@@ -68,9 +68,9 @@ int main(int argc, string argv[]) {
         if (won) {
             break;
         }
-
-        int min = find_min();
-        bool tie = is_tie(min);
+        
+        int voted_person_with_the_least_votes = find_voted_person_with_the_least_votes();
+        bool tie = is_tie(voted_person_with_the_least_votes);
 
         if (tie) {
             for (int i = 0; i < candidate_count; i++) {
@@ -81,12 +81,13 @@ int main(int argc, string argv[]) {
             break;
         }
 
-        eliminate(min);
+        eliminate(voted_person_with_the_least_votes);
 
         for (int i = 0; i < candidate_count; i++) {
             candidates[i].votes = 0;
         }
     }
+
     return 0;
 }
 
@@ -97,6 +98,7 @@ bool vote(int voter, int rank, string name) {
             return true;
         }
     }
+    
     return false;
 }
 
@@ -116,9 +118,8 @@ void tabulate(void) {
 }
 
 bool print_winner(void) {
+    int half_vote = voter_count / 2;
     for (int i = 0; i < voter_count; i++) {  
-        int half_vote = voter_count / 2;
-
         if (candidates[i].votes > half_vote) {
             printf("%s\n", candidates[i].name);
 
@@ -129,7 +130,7 @@ bool print_winner(void) {
     return false;
 }
 
-int find_min(void) {
+int find_voted_person_with_the_least_votes(void) {
     int minimal_vote = MAX_VOTERS; 
 
     for (int i = 0; i < candidate_count; i++) {
@@ -141,9 +142,9 @@ int find_min(void) {
     return minimal_vote;
 }
 
-bool is_tie(int min) {
+bool is_tie(int voted_person_with_the_least_votes) {
     for(int i = 0; i < candidate_count; i++) {
-        if(candidates[i].eliminated == false && candidates[i].votes != min) {
+        if(candidates[i].eliminated == false && candidates[i].votes != voted_person_with_the_least_votes) {
             return false;
         }
     }
@@ -151,10 +152,10 @@ bool is_tie(int min) {
     return true;
 }
 
-void eliminate(int min)
+void eliminate(int voted_person_with_the_least_votes)
 {
     for(int i = 0; i < candidate_count; i++) {
-        if(candidates[i].votes == min) {
+        if(candidates[i].votes == voted_person_with_the_least_votes) {
             candidates[i].eliminated = true;
         }
     }
