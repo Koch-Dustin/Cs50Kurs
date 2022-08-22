@@ -4,8 +4,7 @@
 
 #define MAX 9
 
-typedef struct
-{
+typedef struct {
     string name;
     int votes;
 }
