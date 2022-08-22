@@ -98,7 +98,7 @@ bool vote(int voter, int rank, string name) {
             return true;
         }
     }
-    
+
     return false;
 }
 
@@ -122,7 +122,6 @@ bool print_winner(void) {
     for (int i = 0; i < voter_count; i++) {  
         if (candidates[i].votes > half_vote) {
             printf("%s\n", candidates[i].name);
-
             return true; 
         }
     }

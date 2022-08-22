@@ -57,7 +57,6 @@ int main(int argc, string argv[]) {
 
         int ranks[candidate_count];
 
-
         for (int j = 0; j < candidate_count; j++) {
             string name = get_string("Rank %i: ", j + 1);
 
@@ -80,14 +79,13 @@ int main(int argc, string argv[]) {
 }
 
 bool vote(int rank, string name, int ranks[]) {
-    
     for (int i = 0; i < candidate_count; i++) {
         if (strcmp(name,  candidates[i]) == 0) {
             ranks[rank] = i;
             return true;
         }
     }
-    
+
     return false;
 }
 
@@ -102,7 +100,6 @@ void record_preferences(int ranks[]) {
 }
 
 void add_pairs(void) {
-    
     for (int i = 0; i < candidate_count; i++) {
         for (int j = i + 1; j < candidate_count; j++) {
             if (preferences[i][j] > preferences[j][i]) {
@@ -119,7 +116,6 @@ void add_pairs(void) {
 }
 
 void sort_pairs(void) {
-    
     for(int i = 0; i < pair_count; i++) {
         int max = i;
         for(int j = i + 1; j < pair_count; j++) {
@@ -184,7 +180,6 @@ void lock_pairs(void) {
 }
 
 void print_winner(void) {
-    
     int winner;
     int rank;
 
