@@ -18,15 +18,15 @@ pair;
 string candidates[MAX];
 pair pairs[MAX * (MAX - 1) / 2];
 
-int pair_count;
 int candidate_count;
+int pair_count;
 
 bool vote(int rank, string name, int ranks[]);
-void record_preferences(int ranks[]);
 void add_pairs(void);
-void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
+void record_preferences(int ranks[]);
+void sort_pairs(void);
 
 int main(int argc, string argv[]) {
 
@@ -75,6 +75,7 @@ int main(int argc, string argv[]) {
     sort_pairs();
     lock_pairs();
     print_winner();
+
     return 0;
 }
 
@@ -116,11 +117,11 @@ void add_pairs(void) {
 }
 
 void sort_pairs(void) {
-    for(int i = 0; i < pair_count; i++) {
+    for (int i = 0; i < pair_count; i++) {
         int max = i;
-        for(int j = i + 1; j < pair_count; j++) {
+        for (int j = i + 1; j < pair_count; j++) {
             bool preference_votes_are_lower_than_maximum_votes = preferences[pairs[j].winner][pairs[j].loser] > preferences[pairs[max].winner][pairs[max].loser];
-            if(preference_votes_are_lower_than_maximum_votes) {
+            if (preference_votes_are_lower_than_maximum_votes) {
                 max = j;
             }
         }
@@ -175,7 +176,7 @@ void lock_pairs(void) {
         if (!lock) {
             locked[pairs[i].winner][pairs[i].loser] = false;
         }
-        
+
         lock = true;
     }
 }
@@ -196,4 +197,6 @@ void print_winner(void) {
             printf("%s\n", candidates[i]);
         }
     }
+    
+    return;
 }

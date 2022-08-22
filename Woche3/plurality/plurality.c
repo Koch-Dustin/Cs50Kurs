@@ -52,7 +52,8 @@ int main(int argc, string argv[]) {
 
 bool vote(string name) {
     for (int i = 0; i < candidate_count; i++) {
-        if (strcmp(candidates[i].name, name) == 0) {
+        bool candidatesname_is_voteable = strcmp(candidates[i].name, name) == 0;
+        if (candidatesname_is_voteable) {
             candidates[i].votes++;
             return true;
         }

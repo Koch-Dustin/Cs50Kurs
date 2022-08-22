@@ -19,12 +19,12 @@ candidate candidates[MAX_CANDIDATES];
 int voter_count;
 int candidate_count;
 
-bool vote(int voter, int rank, string name);
+void eliminate(int min);
 void tabulate(void);
-bool print_winner(void);
 int find_min(void);
 bool is_tie(int min);
-void eliminate(int min);
+bool print_winner(void);
+bool vote(int voter, int rank, string name);
 
 int main(int argc, string argv[]) {
     if (argc < 2) {
@@ -37,7 +37,7 @@ int main(int argc, string argv[]) {
         printf("Maximum number of candidates is %i\n", MAX_CANDIDATES);
         return 2;
     }
-    
+
     for (int i = 0; i < candidate_count; i++) {
         candidates[i].name = argv[i + 1];
         candidates[i].votes = 0;
