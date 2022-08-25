@@ -56,7 +56,6 @@ int main(int argc, string argv[]) {
     for (int i = 0; i < voter_count; i++) {
 
         int ranks[candidate_count];
-
         for (int j = 0; j < candidate_count; j++) {
             string name = get_string("Rank %i: ", j + 1);
 
@@ -114,6 +113,8 @@ void add_pairs(void) {
             }
         }
     }
+
+    return;
 }
 
 void sort_pairs(void) {

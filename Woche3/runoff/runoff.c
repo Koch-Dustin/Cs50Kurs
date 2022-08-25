@@ -153,8 +153,7 @@ bool is_tie(int voted_person_with_the_least_votes) {
     return true;
 }
 
-void eliminate(int voted_person_with_the_least_votes)
-{
+void eliminate(int voted_person_with_the_least_votes) {
     for(int i = 0; i < candidate_count; i++) {
         if(candidates[i].votes == voted_person_with_the_least_votes) {
             candidates[i].eliminated = true;
