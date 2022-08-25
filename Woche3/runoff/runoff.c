@@ -94,7 +94,8 @@ int main(int argc, string argv[]) {
 
 bool vote(int voter, int rank, string name) {
     for (int i = 0; i < candidate_count; i++) {
-        if (strcmp(name, candidates[i].name) == 0) {
+        bool voted_person_is_in_candidates_list = strcmp(name, candidates[i].name) == 0; 
+        if (voted_person_is_in_candidates_list) {
             preferences[voter][rank] = i;
             return true;
         }

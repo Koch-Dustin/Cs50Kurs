@@ -72,7 +72,7 @@ void print_winner(void) {
             candidates[i + 1] = swap;
         }
 
-        if(candidates[i].votes == candidates[i + 1].votes) {
+        if (candidates[i].votes == candidates[i + 1].votes) {
             printf("Tie! Between: %s & %s\n", candidates[i].name, candidates[i +1].name);
             return;
         }
