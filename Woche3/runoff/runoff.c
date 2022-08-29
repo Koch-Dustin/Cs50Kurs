@@ -144,8 +144,9 @@ int find_voted_person_with_the_least_votes(void) {
 }
 
 bool is_tie(int voted_person_with_the_least_votes) {
-    for(int i = 0; i < candidate_count; i++) {
-        if(candidates[i].eliminated == false && candidates[i].votes != voted_person_with_the_least_votes) {
+    for (int i = 0; i < candidate_count; i++) {
+        bool candidate_is_not_eliminated_or_has_the_least_votes = candidates[i].eliminated == false && candidates[i].votes != voted_person_with_the_least_votes;
+        if (candidate_is_not_eliminated_or_has_the_least_votes) {
             return false;
         }
     }
@@ -154,8 +155,8 @@ bool is_tie(int voted_person_with_the_least_votes) {
 }
 
 void eliminate(int voted_person_with_the_least_votes) {
-    for(int i = 0; i < candidate_count; i++) {
-        if(candidates[i].votes == voted_person_with_the_least_votes) {
+    for (int i = 0; i < candidate_count; i++) {
+        if (candidates[i].votes == voted_person_with_the_least_votes) {
             candidates[i].eliminated = true;
         }
     }

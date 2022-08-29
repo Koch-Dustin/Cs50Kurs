@@ -80,7 +80,8 @@ int main(int argc, string argv[]) {
 
 bool vote(int rank, string name, int ranks[]) {
     for (int i = 0; i < candidate_count; i++) {
-        if (strcmp(name,  candidates[i]) == 0) {
+        bool voted_candidate_is_valid = strcmp(name,  candidates[i]) == 0;
+        if (voted_candidate_is_valid) {
             ranks[rank] = i;
             return true;
         }
@@ -102,11 +103,13 @@ void record_preferences(int ranks[]) {
 void add_pairs(void) {
     for (int i = 0; i < candidate_count; i++) {
         for (int j = i + 1; j < candidate_count; j++) {
-            if (preferences[i][j] > preferences[j][i]) {
+            bool canadidate1_wins_against_candidate2 = preferences[i][j] > preferences[j][i];
+            bool canadidate2_wins_against_candidate1 = preferences[i][j] < preferences[j][i];
+            if (canadidate1_wins_against_candidate2) {
                 pairs[pair_count].winner = i;
                 pairs[pair_count].loser = j;
                 pair_count++;
-            } else if (preferences[i][j] < preferences[j][i]) {
+            } else if (canadidate2_wins_against_candidate1) {
                 pairs[pair_count].winner = j;
                 pairs[pair_count].loser = i;
                 pair_count++;
