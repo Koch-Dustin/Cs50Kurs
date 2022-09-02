@@ -22,7 +22,7 @@ int limit(int RGB) {
     if (RGB > 255) {
         RGB = 255;
     }
-
+    
     return RGB;
 }
 
