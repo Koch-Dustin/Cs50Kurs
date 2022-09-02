@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
     fread(&bitmapfileheader, sizeof(BITMAPFILEHEADER), 1, inptr);
     fread(&bitmapinfoheader, sizeof(BITMAPINFOHEADER), 1, inptr);
 
-    if (bf.bfType != 0x4d42 || bf.bfOffBits != 54 || bi.biSize != 40 || bi.biBitCount != 24 || bi.biCompression != 0) {
+    if (bitmapfileheader.bfType != 0x4d42 || bitmapfileheader.bfOffBits != 54 || bitmapinfoheader.biSize != 40 || bitmapinfoheader.biBitCount != 24 || bitmapinfoheader.biCompression != 0) {
         fclose(outptr);
         fclose(inptr);
         printf("Unsupported file format.\n");
@@ -89,9 +89,9 @@ int main(int argc, char *argv[]) {
             break;
     }
 
-    fwrite(&bf, sizeof(BITMAPFILEHEADER), 1, outptr);
+    fwrite(&bitmapfileheader, sizeof(BITMAPFILEHEADER), 1, outptr);
 
-    fwrite(&bi, sizeof(BITMAPINFOHEADER), 1, outptr);
+    fwrite(&bitmapinfoheader, sizeof(BITMAPINFOHEADER), 1, outptr);
 
     for (int i = 0; i < height; i++) {
         fwrite(image[i], sizeof(RGBTRIPLE), width, outptr);
