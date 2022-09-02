@@ -54,9 +54,7 @@ person *create_family(int generations) {
 
 void free_family(person *p) {
 
-    if(p == NULL) {
-        return;
-    }
+    if(p == NULL) return;
 
     free_family(p -> parents[0]);
     free_family(p -> parents[1]);
@@ -65,9 +63,7 @@ void free_family(person *p) {
 }
 
 void print_family(person *p, int generation) {
-    if (p == NULL) {
-        return;
-    }
+    if (p == NULL) return;
 
     for (int i = 0; i < generation * INDENT_LENGTH; i++) {
         printf(" ");
@@ -90,6 +86,7 @@ void print_family(person *p, int generation) {
 
 char random_allele() {
     int r = rand() % 3;
+
     if (r == 0) {
         return 'A';
     } else if (r == 1) {
