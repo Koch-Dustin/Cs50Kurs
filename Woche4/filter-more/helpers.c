@@ -75,15 +75,16 @@ int getBlur(int i, int j, int height, int width, RGBTRIPLE image[height][width] 
 
     for (int k = i - 1; k <  (i + 2); k++) {
         for (int l = j - 1; l < (j + 2); l ++) {
-            if (k < 0 || l < 0 || k >= height || l >= width) {
-                continue;
-            }
+            if (k < 0 || l < 0 || k >= height || l >= width) continue;
+
+            RGBTRIPLE imageTriple = image[k][i];
+
             if (color_position == 0) {
-                sum += image[k][l].rgbtRed;
+                sum += imageTriple.rgbtRed;
             } else if (color_position == 1) {
-                sum += image[k][l].rgbtGreen;
+                sum += imageTriple.rgbtGreen;
             } else {
-                sum += image[k][l].rgbtBlue;
+                sum += imageTriple.rgbtBlue;
             }
             counter++;
 

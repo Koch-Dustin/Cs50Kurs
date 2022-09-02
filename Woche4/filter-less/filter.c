@@ -10,6 +10,7 @@ int main(int argc, char *argv[]) {
     char filter = getopt(argc, argv, filters);
     if (filter == '?') {
         printf("Invalid filter.\n");
+        
         return 1;
     }
 
