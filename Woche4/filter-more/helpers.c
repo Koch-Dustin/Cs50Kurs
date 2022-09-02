@@ -4,8 +4,8 @@
 void grayscale(int height, int width, RGBTRIPLE image[height][width]) {
     float rgbGray;
 
-    for(int i = 0; i < height; i ++) {
-        for(int j = 0; j < width; j++) {
+    for (int i = 0; i < height; i ++) {
+        for (int j = 0; j < width; j++) {
             rgbGray = round((image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3.00);
 
             image[i][j].rgbtBlue = rgbGray;
@@ -22,14 +22,15 @@ int limit(int RGB) {
     if(RGB > 255) {
         RGB = 255;
     }
+
     return RGB;
 }
 
 void sepia(int height, int width, RGBTRIPLE image[height][width]) {
-
     int sepiaBlue;
     int sepiaRed;
     int sepiaGreen;
+
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
 
@@ -50,7 +51,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width]) {
     int temp[3];
 
     for (int i = 0; i < height; i++) {
-        for(int j = 0; j < width / 2; j++) {
+        for (int j = 0; j < width / 2; j++) {
             temp[0] = image[i][j].rgbtBlue;
             temp[1] = image[i][j].rgbtGreen;
             temp[2] = image[i][j].rgbtRed;
@@ -80,17 +81,16 @@ int getBlur(int i, int j, int height, int width, RGBTRIPLE image[height][width] 
             }
             if (color_position == 0) {
                 sum += image[k][l].rgbtRed;
-            }
-            else if (color_position == 1) {
+            } else if (color_position == 1) {
                 sum += image[k][l].rgbtGreen;
-            }
-            else {
+            } else {
                 sum += image[k][l].rgbtBlue;
             }
             counter++;
 
         }
     }
+
     return round(sum /counter);
 }
 
@@ -144,13 +144,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width]) {
                         continue;
                     }
 
-                    GxR += image[i + h][j + w].rgbtRed * Gx[h + 1][w + 1];
-                    GxG += image[i + h][j + w].rgbtGreen * Gx[h + 1][w + 1];
-                    GxB += image[i + h][j + w].rgbtBlue * Gx[h + 1][w + 1];
+                    RGBTRIPLE imageTripple = image[i + h][j + w];
+                    GxR += imageTripple.rgbtRed * Gx[h + 1][w + 1];
+                    GxG += imageTripple.rgbtGreen * Gx[h + 1][w + 1];
+                    GxB += imageTripple.rgbtBlue * Gx[h + 1][w + 1];
 
-                    GyR += image[i + h][j + w].rgbtRed * Gy[h + 1][w + 1];
-                    GyG += image[i + h][j + w].rgbtGreen * Gy[h + 1][w + 1];
-                    GyB += image[i + h][j + w].rgbtBlue * Gy[h + 1][w + 1];
+                    GyR += imageTripple.rgbtRed * Gy[h + 1][w + 1];
+                    GyG += imageTripple.rgbtGreen * Gy[h + 1][w + 1];
+                    GyB += imageTripple.rgbtBlue * Gy[h + 1][w + 1];
                 }
             }
             

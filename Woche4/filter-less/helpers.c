@@ -8,7 +8,6 @@ void reflect();
 int getBlur();
 void blur();
 
-// Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width]) {
     float rgbGray;
 
@@ -30,15 +29,16 @@ int limit(int RGB) {
     if(RGB > 255) {
         RGB = 255;
     }
+
     return RGB;
 }
 
-// Convert image to sepia
 void sepia(int height, int width, RGBTRIPLE image[height][width]) {
 
     int sepiaBlue;
     int sepiaRed;
     int sepiaGreen;
+
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
 
@@ -55,7 +55,6 @@ void sepia(int height, int width, RGBTRIPLE image[height][width]) {
     return;
 }
 
-// Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width]) {
     int temp[3];
 
@@ -101,27 +100,26 @@ int getBlur(int i, int j, int height, int width, RGBTRIPLE image[height][width] 
 
         }
     }
+
     return round(sum /counter);
 }
 
-// Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width]) {
     RGBTRIPLE copy[height][width];
 
     for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++)
-        {
+        for (int j = 0; j < width; j++) {
             copy[i][j] = image[i][j];
         }
     }
 
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
             image[i][j].rgbtRed = getBlur(i, j, height, width, copy, 0);
             image[i][j].rgbtGreen = getBlur(i, j, height, width, copy, 1);
             image[i][j].rgbtBlue = getBlur(i, j, height, width, copy, 2);
         }
     }
+    
+    return;
 }
