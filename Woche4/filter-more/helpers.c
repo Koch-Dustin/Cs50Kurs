@@ -19,7 +19,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width]) {
 }
 
 int limit(int RGB) {
-    if(RGB > 255) {
+    if (RGB > 255) {
         RGB = 255;
     }
 
@@ -76,7 +76,7 @@ int getBlur(int i, int j, int height, int width, RGBTRIPLE image[height][width] 
 
     for (int k = i - 1; k <  (i + 2); k++) {
         for (int l = j - 1; l < (j + 2); l ++) {
-            if(k < 0 || l < 0 || k >= height || l >= width) {
+            if (k < 0 || l < 0 || k >= height || l >= width) {
                 continue;
             }
             if (color_position == 0) {

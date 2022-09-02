@@ -40,6 +40,7 @@ int main(int argc, char *argv[]) {
     if (outptr == NULL) {
         fclose(inptr);
         printf("Could not create %s.\n", outfile);
+        
         return 5;
     }
 

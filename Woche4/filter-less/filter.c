@@ -29,6 +29,7 @@ int main(int argc, char *argv[]) {
     FILE *inptr = fopen(infile, "r");
     if (inptr == NULL) {
         printf("Could not open %s.\n", infile);
+
         return 4;
     }
 
