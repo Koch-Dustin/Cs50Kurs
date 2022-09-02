@@ -18,7 +18,6 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width]) {
             image[i][j].rgbtBlue = rgbGray;
             image[i][j].rgbtGreen = rgbGray;
             image[i][j].rgbtRed = rgbGray;
-
         }
     }
 
@@ -41,14 +40,15 @@ void sepia(int height, int width, RGBTRIPLE image[height][width]) {
 
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
+            RGBTRIPLE imgTriple = image[i][j];
 
-            sepiaBlue = limit(round(0.272 * image[i][j].rgbtRed + 0.534 * image[i][j].rgbtGreen + 0.131 * image[i][j].rgbtBlue));
-            sepiaGreen = limit(round(0.349 * image[i][j].rgbtRed + 0.686 * image[i][j].rgbtGreen + 0.168 * image[i][j].rgbtBlue));
-            sepiaRed = limit(round(0.393 * image[i][j].rgbtRed + 0.769 * image[i][j].rgbtGreen + 0.189 * image[i][j].rgbtBlue));
+            sepiaBlue = limit(round(0.272 * imgTriple.rgbtRed + 0.534 * imgTriple.rgbtGreen + 0.131 * imgTriple.rgbtBlue));
+            sepiaGreen = limit(round(0.349 * imgTriple.rgbtRed + 0.686 * imgTriple.rgbtGreen + 0.168 * imgTriple.rgbtBlue));
+            sepiaRed = limit(round(0.393 * imgTriple.rgbtRed + 0.769 * imgTriple.rgbtGreen + 0.189 * imgTriple.rgbtBlue));
 
-            image[i][j].rgbtBlue = sepiaBlue;
-            image[i][j].rgbtGreen = sepiaGreen;
-            image[i][j].rgbtRed = sepiaRed;
+            imgTriple.rgbtBlue = sepiaBlue;
+            imgTriple.rgbtGreen = sepiaGreen;
+            imgTriple.rgbtRed = sepiaRed;
         }
     }
 
@@ -56,21 +56,21 @@ void sepia(int height, int width, RGBTRIPLE image[height][width]) {
 }
 
 void reflect(int height, int width, RGBTRIPLE image[height][width]) {
-    int temp[3];
+    RGBTRIPLE temp;
 
     for (int i = 0; i < height; i++) {
         for(int j = 0; j < width / 2; j++) {
-            temp[0] = image[i][j].rgbtBlue;
-            temp[1] = image[i][j].rgbtGreen;
-            temp[2] = image[i][j].rgbtRed;
+            temp.rgbtBlue = image[i][j].rgbtBlue;
+            temp.rgbtGreen = image[i][j].rgbtGreen;
+            temp.rgbtRed = image[i][j].rgbtRed;
 
             image[i][j].rgbtBlue = image[i][width - j - 1].rgbtBlue;
             image[i][j].rgbtGreen = image[i][width - j - 1].rgbtGreen;
             image[i][j].rgbtRed = image[i][width - j - 1].rgbtRed;
 
-            image[i][width - j - 1].rgbtBlue = temp[0];
-            image[i][width - j - 1].rgbtGreen = temp[1];
-            image[i][width - j - 1].rgbtRed = temp[2];
+            image[i][width - j - 1].rgbtBlue = temp.rgbtBlue;
+            image[i][width - j - 1].rgbtGreen = temp.rgbtGreen;
+            image[i][width - j - 1].rgbtRed = temp.rgbtRed;
 
         }
     }
@@ -97,7 +97,6 @@ int getBlur(int i, int j, int height, int width, RGBTRIPLE image[height][width] 
                 sum += image[k][l].rgbtBlue;
             }
             counter++;
-
         }
     }
 

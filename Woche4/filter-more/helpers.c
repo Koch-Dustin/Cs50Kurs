@@ -11,7 +11,6 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width]) {
             image[i][j].rgbtBlue = rgbGray;
             image[i][j].rgbtGreen = rgbGray;
             image[i][j].rgbtRed = rgbGray;
-
         }
     }
 
@@ -48,21 +47,21 @@ void sepia(int height, int width, RGBTRIPLE image[height][width]) {
 }
 
 void reflect(int height, int width, RGBTRIPLE image[height][width]) {
-    int temp[3];
+    RGBTRIPLE temp;
 
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width / 2; j++) {
-            temp[0] = image[i][j].rgbtBlue;
-            temp[1] = image[i][j].rgbtGreen;
-            temp[2] = image[i][j].rgbtRed;
+            temp.rgbtBlue = image[i][j].rgbtBlue;
+            temp.rgbtGreen = image[i][j].rgbtGreen;
+            temp.rgbtRed = image[i][j].rgbtRed;
 
             image[i][j].rgbtBlue = image[i][width - j - 1].rgbtBlue;
             image[i][j].rgbtGreen = image[i][width - j - 1].rgbtGreen;
             image[i][j].rgbtRed = image[i][width - j - 1].rgbtRed;
 
-            image[i][width - j - 1].rgbtBlue = temp[0];
-            image[i][width - j - 1].rgbtGreen = temp[1];
-            image[i][width - j - 1].rgbtRed = temp[2];
+            image[i][width - j - 1].rgbtBlue = temp.rgbtBlue;
+            image[i][width - j - 1].rgbtGreen = temp.rgbtGreen;
+            image[i][width - j - 1].rgbtRed = temp.rgbtRed;
 
         }
     }
@@ -144,14 +143,18 @@ void edges(int height, int width, RGBTRIPLE image[height][width]) {
                         continue;
                     }
 
-                    RGBTRIPLE imageTripple = image[i + h][j + w];
-                    GxR += imageTripple.rgbtRed * Gx[h + 1][w + 1];
-                    GxG += imageTripple.rgbtGreen * Gx[h + 1][w + 1];
-                    GxB += imageTripple.rgbtBlue * Gx[h + 1][w + 1];
+                    RGBTRIPLE imageTriple = image[i + h][j + w];
 
-                    GyR += imageTripple.rgbtRed * Gy[h + 1][w + 1];
-                    GyG += imageTripple.rgbtGreen * Gy[h + 1][w + 1];
-                    GyB += imageTripple.rgbtBlue * Gy[h + 1][w + 1];
+                    int GxValue = Gx[h + 1][w + 1];
+                    int GyValue = Gy[h + 1][w + 1];
+
+                    GxR += imageTriple.rgbtRed * GxValue;
+                    GxG += imageTriple.rgbtGreen * GxValue;
+                    GxB += imageTriple.rgbtBlue * GxValue;
+
+                    GyR += imageTriple.rgbtRed * GyValue;
+                    GyG += imageTriple.rgbtGreen * GyValue;
+                    GyB += imageTriple.rgbtBlue * GyValue;
                 }
             }
             

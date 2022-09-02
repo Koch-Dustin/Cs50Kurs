@@ -15,11 +15,13 @@ int main(int argc, char *argv[]) {
 
     if (getopt(argc, argv, filters) != -1) {
         printf("Only one filter allowed.\n");
+        
         return 2;
     }
 
     if (argc != optind + 2) {
         printf("Usage: ./filter [flag] infile outfile\n");
+
         return 3;
     }
 
@@ -37,6 +39,7 @@ int main(int argc, char *argv[]) {
     if (outptr == NULL) {
         fclose(inptr);
         printf("Could not create %s.\n", outfile);
+
         return 5;
     }
 
@@ -50,6 +53,7 @@ int main(int argc, char *argv[]) {
         fclose(outptr);
         fclose(inptr);
         printf("Unsupported file format.\n");
+
         return 6;
     }
 
@@ -61,6 +65,7 @@ int main(int argc, char *argv[]) {
         printf("Not enough memory to store image.\n");
         fclose(outptr);
         fclose(inptr);
+
         return 7;
     }
 
