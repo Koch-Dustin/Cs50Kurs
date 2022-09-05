@@ -33,11 +33,10 @@ bool check(const char *word) {
     while (cursor != NULL) {
         if (strcasecmp(cursor->word, word) != 0) {
             cursor = cursor->next;
-        } else {
-            return true;
-        }
+        } else return true;
 
     }
+
     return false;
 }
 
@@ -45,14 +44,14 @@ unsigned int hash(const char *word) {
     unsigned int hash = 0;
     for (int i = 0, n = strlen(word); i < n; i++)
         hash = (hash << 2) ^ word[i];
+
     return hash % N;
 }
 
 bool load(const char *dictionary) {
     FILE *file = fopen(dictionary, "r");
-    if(!file) {
-        return false;
-    }
+    if(!file) return false;
+
     char buffer[LENGTH + 1];
 
     while(fscanf(file, "%s", buffer) != EOF) {
@@ -75,6 +74,7 @@ bool load(const char *dictionary) {
     }
 
     fclose(file);
+
     return true;
 }
 
@@ -89,7 +89,6 @@ void destroy(node *root) {
         destroy(root->next);
     }
     free(root);
-
 }
 
 bool unload(void) {

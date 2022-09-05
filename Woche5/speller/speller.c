@@ -40,6 +40,7 @@ int main(int argc, char *argv[]) {
 
     char *text = (argc == 3) ? argv[2] : argv[1];
     FILE *file = fopen(text, "r");
+    
     if (file == NULL) {
         printf("Could not open %s.\n", text);
         unload();
