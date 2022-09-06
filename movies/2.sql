@@ -1,0 +1,1 @@
+SELECT brith FROM people WHERE name = "Emma Stone";
