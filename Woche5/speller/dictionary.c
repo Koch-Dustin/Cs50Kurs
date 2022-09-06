@@ -83,7 +83,7 @@ unsigned int size(void) {
 
 void destroy(node *root) {
 
-    if(root->next != NULL) {
+    if(root -> next != NULL) {
         destroy(root->next);
     }
     free(root);
