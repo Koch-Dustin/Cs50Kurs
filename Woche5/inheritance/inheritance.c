@@ -4,8 +4,7 @@
 #include <time.h>
 #include <math.h>
 
-typedef struct person
-{
+typedef struct person {
     struct person *parents[2];
     char alleles[2];
 }

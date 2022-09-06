@@ -68,9 +68,7 @@ bool load(const char *dictionary) {
         }
 
         table[index] = n;
-
         total_words++;
-
     }
 
     fclose(file);
@@ -97,5 +95,6 @@ bool unload(void) {
             destroy(table[i]);
         }
     }
+    
     return true;
 }
