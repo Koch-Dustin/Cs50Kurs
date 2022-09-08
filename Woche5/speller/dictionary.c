@@ -30,11 +30,11 @@ bool check(const char *word) {
 
     int index = hash(lword);
     node *cursor = table[index];
+
     while (cursor != NULL) {
         if (strcasecmp(cursor->word, word) != 0) {
             cursor = cursor->next;
         } else return true;
-
     }
 
     return false;
@@ -77,16 +77,16 @@ bool load(const char *dictionary) {
 }
 
 unsigned int size(void) {
-
     return total_words;
 }
 
 void destroy(node *root) {
-
     if(root -> next != NULL) {
         destroy(root->next);
     }
     free(root);
+    
+    return;
 }
 
 bool unload(void) {

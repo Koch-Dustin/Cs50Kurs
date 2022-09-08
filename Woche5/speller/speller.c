@@ -30,77 +30,14 @@ int main(int argc, char *argv[]) {
     bool loaded = load(dictionary);
     getrusage(RUSAGE_SELF, &after);
 
-    if (!loaded) {
-        printf("Could not load %s.\n", dictionary);
-
-        return 1;
-    }
-
-    time_load = calculate(&before, &after);
-
-    char *text = (argc == 3) ? argv[2] : argv[1];
-    FILE *file = fopen(text, "r");
-    
-    if (file == NULL) {
-        printf("Could not open %s.\n", text);
-        unload();
-
-        return 1;
-    }
-
-    printf("\nMISSPELLED WORDS\n\n");
+    check_if_file_could_be_opened();
 
     int index = 0, misspellings = 0, words = 0;
     char word[LENGTH + 1];
 
-    char c;
-    while (fread(&c, sizeof(char), 1, file)) {
+    check_for_possible_errors_in_input()
 
-        if (isalpha(c) || (c == '\'' && index > 0)) {
-
-            word[index] = c;
-            index++;
-
-            if (index > LENGTH) {
-
-                while (fread(&c, sizeof(char), 1, file) && isalpha(c));
-
-                index = 0;
-            }
-        }
-
-        else if (isdigit(c)) {
-            while (fread(&c, sizeof(char), 1, file) && isalnum(c));
-
-            index = 0;
-        } else if (index > 0) {
-
-            word[index] = '\0';
-
-            words++;
-
-            getrusage(RUSAGE_SELF, &before);
-            bool misspelled = !check(word);
-            getrusage(RUSAGE_SELF, &after);
-
-            time_check += calculate(&before, &after);
-
-            if (misspelled) {
-                printf("%s\n", word);
-                misspellings++;
-            }
-
-            index = 0;
-        }
-    }
-
-    if (ferror(file)) {
-        fclose(file);
-        printf("Error reading %s.\n", text);
-        unload();
-
-        return 1;
-    }
+    on_error()
 
     fclose(file);
 
@@ -141,5 +78,76 @@ double calculate(const struct rusage *b, const struct rusage *a) {
     else {
         int used_time = ((((a->ru_utime.tv_sec * 1000000 + a->ru_utime.tv_usec) - (b->ru_utime.tv_sec * 1000000 + b->ru_utime.tv_usec)) + ((a->ru_stime.tv_sec * 1000000 + a->ru_stime.tv_usec) - (b->ru_stime.tv_sec * 1000000 + b->ru_stime.tv_usec))) / 1000000.0);
         return used_time;
+    }
+}
+
+void check_if_file_could_be_opened() {
+    if (!loaded) {
+        printf("Could not load %s.\n", dictionary);
+
+        return 1;
+    }
+
+    time_load = calculate(&before, &after);
+
+    char *text = (argc == 3) ? argv[2] : argv[1];
+    FILE *file = fopen(text, "r");
+    
+    if (file == NULL) {
+        printf("Could not open %s.\n", text);
+        unload();
+
+        return 1;
+    }
+
+    printf("\nMISSPELLED WORDS\n\n");
+}
+
+void check_for_possible_errors_in_input() {
+    char c;
+    while (fread(&c, sizeof(char), 1, file)) {
+        if (isalpha(c) || (c == '\'' && index > 0)) {
+            word[index] = c;
+            index++;
+
+            if (index > LENGTH) {
+                while (fread(&c, sizeof(char), 1, file) && isalpha(c));
+
+                index = 0;
+            }
+        }
+
+        else if (isdigit(c)) {
+            while (fread(&c, sizeof(char), 1, file) && isalnum(c));
+
+            index = 0;
+        } else if (index > 0) {
+
+            word[index] = '\0';
+            words++;
+
+            getrusage(RUSAGE_SELF, &before);
+            bool misspelled = !check(word);
+            getrusage(RUSAGE_SELF, &after);
+
+            time_check += calculate(&before, &after);
+
+            if (misspelled) {
+                printf("%s\n", word);
+                misspellings++;
+            }
+
+            index = 0;
+        }
+    }
+}
+
+void on_error() {
+    if (ferror(file)) {
+        fclose(file);
+        printf("Error reading %s.\n", text);
+        unload();
+
+        return 1;
     }
 }
