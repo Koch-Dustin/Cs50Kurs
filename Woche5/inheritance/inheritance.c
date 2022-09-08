@@ -55,7 +55,7 @@ person *create_family(int generations) {
 
 void free_family(person *personPointer) {
 
-    if(personPointer == NULL) return;
+    if (personPointer == NULL) return;
 
     free_family(personPointer -> parents[0]);
     free_family(personPointer -> parents[1]);
