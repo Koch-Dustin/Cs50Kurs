@@ -71,7 +71,6 @@ void reflect(int height, int width, RGBTRIPLE image[height][width]) {
             image[i][width - j - 1].rgbtBlue = temp.rgbtBlue;
             image[i][width - j - 1].rgbtGreen = temp.rgbtGreen;
             image[i][width - j - 1].rgbtRed = temp.rgbtRed;
-
         }
     }
 
@@ -84,7 +83,7 @@ int getBlur(int i, int j, int height, int width, RGBTRIPLE image[height][width] 
 
     for (int k = i - 1; k <  (i + 2); k++) {
         for (int l = j - 1; l < (j + 2); l ++) {
-            if(k < 0 || l < 0 || k >= height || l >= width) {
+            if (k < 0 || l < 0 || k >= height || l >= width) {
                 continue;
             }
             if (color_position == 0) {
