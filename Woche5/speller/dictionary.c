@@ -50,7 +50,7 @@ unsigned int hash(const char *word) {
 
 bool load(const char *dictionary) {
     FILE *file = fopen(dictionary, "r");
-    if(!file) return false;
+    if (!file) return false;
 
     char buffer[LENGTH + 1];
 
@@ -61,7 +61,7 @@ bool load(const char *dictionary) {
 
         unsigned int index = hash(buffer);
 
-        if(table[index] != NULL) {
+        if (table[index] != NULL) {
            n->next = table[index];
         } else {
             n->next = NULL;
@@ -81,7 +81,7 @@ unsigned int size(void) {
 }
 
 void destroy(node *root) {
-    if(root -> next != NULL) {
+    if (root -> next != NULL) {
         destroy(root->next);
     }
     free(root);
@@ -91,7 +91,7 @@ void destroy(node *root) {
 
 bool unload(void) {
     for (int i = 0; i < N; i++) {
-        if(table[i]!= NULL) {
+        if (table[i]!= NULL) {
             destroy(table[i]);
         }
     }
