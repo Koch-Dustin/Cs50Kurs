@@ -1,0 +1,133 @@
+* {
+    user-select: none;
+    
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.hyperlinkbar {
+    position: absolute;
+    margin-right: 20px;
+    height: 10%;
+    word-spacing: 20px;
+    float: right;
+    margin-top: 20px;
+    text-align: end;
+    margin-left: 20px;
+}
+
+.hyperlinkbar nav{
+    position: absolute;
+    width: auto;
+}
+
+.hyperlinkbar a {
+    position: relative;
+    font-size: 1.5em;
+    font-weight: 800px;
+    text-decoration: none;
+    color: black;
+    
+}
+
+.header i{
+    display: none;
+    float: right;
+    position: relative;
+    font-size: 5vh;
+    margin-top: 20px;
+    margin-right: 2.5vh;
+    cursor: pointer;
+}
+
+#cross {
+    display: none;
+    transform: rotateZ(-0.125turn);
+}
+
+.header {
+    width: 100%;
+    height: 10vh;
+    background-color: antiquewhite;
+}
+
+.content_container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: auto;
+    background-color: antiquewhite;
+    margin-top: 5vh;
+    display: flexbox;
+    text-align: center;
+    align-items: center;
+}
+
+.content_container span {
+    font-size: 1.5em;
+    margin-top: 100px;
+}
+
+.projekt_one_info_container {
+    display: none;
+    height: auto;
+    width: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid black;
+    border-radius: 12px;
+    padding-top: 20px;
+}
+
+.projekt_one_info_container span {
+    color: white;
+    font-size: 1.5em;
+}
+
+.projekt_two_info_container {
+    display: none;
+    height: auto;
+    width: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid black;
+    border-radius: 12px;
+    padding-top: 20px;
+}
+
+.projekt_two_info_container span {
+    color: white;
+    font-size: 1.5em;
+}
+
+.projekt_three_info_container {
+    display: none;
+    height: auto;
+    width: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid black;
+    border-radius: 12px;
+    padding-top: 20px;
+}
+
+.projekt_three_info_container span {
+    color: white;
+    font-size: 1.5em;
+}
+
+.content_container i {
+    font-size: 1.5em;
+    font: weight 800px;
+}
+
+.test {
+    margin-top: -8px;
+}
+
+.content_container p {
+    font-size: 1.2em;
+}
