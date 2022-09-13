@@ -61,6 +61,7 @@ void free_family(person *personPointer) {
     free_family(personPointer -> parents[1]);
 
     free(personPointer);
+    
     return;
 }
 
