@@ -16,8 +16,7 @@ def input_number(message):
             return user_input
 
 
-test = 0
-test2 = 0
+separate_digits = 0
 count = 0
 divisor = 10
 
@@ -28,7 +27,7 @@ workingCC = credit_card_number
 
 while workingCC > 0:
     last_digit = workingCC % 10
-    test = test + last_digit
+    separate_digits = separate_digits + last_digit
     workingCC = workingCC // 100
 
 
@@ -36,7 +35,7 @@ workingCC = credit_card_number // 10
 while workingCC > 0:
     last_digit = workingCC % 10
     times_two = last_digit * 2
-    test = test + (times_two % 10) + (times_two // 10)
+    separate_digits = separate_digits + (times_two % 10) + (times_two // 10)
     workingCC = workingCC // 100
 
 workingCC = credit_card_number
@@ -56,7 +55,7 @@ first_two_digits = credit_card_number // (divisor // 10)
 
 
 def check_which_type_card_is():
-    if test % 10 == 0:
+    if separate_digits % 10 == 0:
         card_is_master_card = count == 16 and (first_two_digits == 51 or first_two_digits == 52 or first_two_digits == 53 or first_two_digits == 54 or first_two_digits == 55)
         if card_is_master_card:
             print("MasterCard")
