@@ -61,6 +61,7 @@ void free_family(person *personPointer) {
     free_family(personPointer -> parents[1]);
 
     free(personPointer);
+    return;
 }
 
 void print_family(person *personPointer, int generation) {
@@ -95,5 +96,5 @@ char random_allele() {
 	    case 1: printf("B\n"); break;
 	    default: printf("O\n"); break;
     }
-
+    return;
 }
