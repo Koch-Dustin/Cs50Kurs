@@ -1,7 +1,6 @@
--- Infos zum DIebstahl nachschauen. Bei der gegeben Zeit und Ort.
+-- Infos zum Diebstahl nachschauen. Bei der gegeben Zeit und Ort.
 SELECT description FROM crime_scene_reports WHERE year = 2021 AND month = 7 AND day = 28 AND street = 'Humphrey Street';
 
--- Two incidents happened that day. Only one is related to theft. Other is related to littering.
 
 -- Namen der zeugen finden
 SELECT name, transcript 
@@ -10,7 +9,7 @@ WHERE year = 2021
 AND month = 7 
 AND day = 28;
 
--- Eugen gefunden, gucken ob es mehrere gibt
+-- Gucken ob es mehrere gibt
 SELECT name 
 FROM people 
 WHERE name = 'Eugene';
@@ -117,4 +116,4 @@ SELECT name, bakery_security_logs.hour, bakery_security_logs.minute
    AND bakery_security_logs.minute <= 25
  ORDER BY bakery_security_logs.minute;
 
--- Bruce war es, er kommt in allen 4 listen vor. Er wird nach New York City geflohen sein. Und robin muss der Complize sein, da er der jenige ist der die Tickets gekauft hat.
+-- Bruce war es, er kommt in allen listen vor. Er wird nach New York City geflohen sein. Und robin muss der Complize sein, da er der jenige ist der die Tickets gekauft hat.
