@@ -53,30 +53,4 @@ def main():
     return
 
 
-def longest_match(sequence, subsequence):
-
-    longest_run = 0
-    subsequence_length = len(subsequence)
-    sequence_length = len(sequence)
-
-    for i in range(sequence_length):
-
-        count = 0
-
-        while True:
-
-            start = i + count * subsequence_length
-            end = start + subsequence_length
-
-            if sequence[start:end] == subsequence:
-                count += 1
-
-            else:
-                break
-
-        longest_run = max(longest_run, count)
-
-    return longest_run
-
-
 main()
