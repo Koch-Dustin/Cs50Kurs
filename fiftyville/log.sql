@@ -1,6 +1,4 @@
--- Keep a log of any SQL queries you execute as you solve the mystery.
-
--- Checking the description of the crime happened at the given location and time.
+-- Infos zum DIebstahl nachschauen. Bei der gegeben Zeit und Ort.
 SELECT description FROM crime_scene_reports WHERE year = 2021 AND month = 7 AND day = 28 AND street = 'Humphrey Street';
 
 -- Two incidents happened that day. Only one is related to theft. Other is related to littering.
@@ -16,7 +14,6 @@ AND day = 28;
 SELECT name 
 FROM people 
 WHERE name = 'Eugene';
--- gibt nur einen
 
 -- Drei zeugen gefunden, einer erwähnt am 28. July. 2021 "Bäcker"
 SELECT name, transcript
