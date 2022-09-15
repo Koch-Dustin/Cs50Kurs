@@ -71,78 +71,17 @@ body {
     align-items: center;
 }
 
-.content_container img{
-    margin-top: -8px;
+.content_container ul {
+    list-style: none;
+    word-spacing: 100px;
 }
 
-.content_container span {
+.content_container ul li a i {
+    font-size: 5em;
     color: white;
-    font-size: 1.5em;
-    margin-top: 100px;
-}
-
-.projekt_one_info_container {
-    display: none;
-    height: auto;
-    width: 60vh;
-    margin-left: auto;
-    margin-right: auto;
-    border: 3px solid white;
-    border-radius: 12px;
-    padding-top: 20px;
-}
-
-.projekt_one_info_container span {
-    color: white;
-    font-size: 1.5em;
-    margin-top: 10px;
-}
-
-.projekt_two_info_container {
-    display: none;
-    height: auto;
-    width: 60vh;
-    margin-left: auto;
-    margin-right: auto;
-    border: 3px solid white;
-    border-radius: 12px;
-    padding-top: 20px;
-}
-
-.projekt_two_info_container span {
-    color: white;
-    font-size: 1.5em;
-    margin-top: 10px;
-}
-
-.projekt_three_info_container {
-    display: none;
-    height: auto;
-    width: 60vh;
-    margin-left: auto;
-    margin-right: auto;
-    border: 3px solid white;
-    border-radius: 12px;
-    padding-top: 20px;
-}
-
-.projekt_three_info_container span {
-    color: white;
-    font-size: 1.5em;
-    margin-top: 10px;
-}
-
-.content_container i {
-    font-size: 1.5em;
-    font: weight 800px;
 }
 
 .content_container h2 {
     color: white;
     margin-top: 2vh;
-}
-
-.content_container p {
-    color: white;
-    font-size: 1.2em;
 }

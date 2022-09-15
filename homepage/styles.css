@@ -6,52 +6,55 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: rgb(36, 36, 36);
+}
+
+.header {
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(36, 36, 36);
+    display: flex;
+    justify-content: center;
 }
 
 .hyperlinkbar {
     position: absolute;
-    margin-right: 20px;
+    margin-right: auto;
     height: 10%;
     word-spacing: 20px;
     float: right;
     margin-top: 20px;
     text-align: end;
-    margin-left: 20px;
+    margin-left: auto;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 1px solid white;
 }
 
 .hyperlinkbar nav{
     position: absolute;
     width: auto;
+    
 }
 
 .hyperlinkbar a {
     position: relative;
     font-size: 1.5em;
     font-weight: 800px;
+    border: 1px solid white;
     text-decoration: none;
-    color: black;
-    
+    color: white;
+    padding: 3px;
+    border-radius: 12px;
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.header i{
-    display: none;
-    float: right;
-    position: relative;
-    font-size: 5vh;
-    margin-top: 20px;
-    margin-right: 2.5vh;
-    cursor: pointer;
-}
-
-#cross {
-    display: none;
-    transform: rotateZ(-0.125turn);
-}
-
-.header {
-    width: 100%;
-    height: 10vh;
-    background-color: antiquewhite;
+.hyperlinkbar a:hover {
+    background-color:rgb(59, 59, 59)
 }
 
 .content_container {
@@ -59,8 +62,10 @@ body {
     margin-right: auto;
     width: 80%;
     height: auto;
-    background-color: antiquewhite;
-    margin-top: 5vh;
+    background-color: rgb(36, 36, 36);
+    border: 1px solid white;
+    border-radius: 12px;
+    margin-top: 8.5vh;
     display: flexbox;
     text-align: center;
 }
@@ -70,28 +75,20 @@ body {
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
-    height: 400px;
-    width: 400px;
+    height: 380px;
+    width: 380px;
 }
 
 .content_container p{
     font-size: 1.5em;
     font-weight: 800;
     margin-top: 2vh;
+    color: white;
 }
+
 .content_container span {
+    color: white;
     margin-left: auto;
     margin-right: auto;
     font-size: 1.5em
 }
-
-/* @media(max-width: 550px) {
-    .header i{
-        display: block;
-    }
-
-    .hyperlinkbar {
-        display: none;
-    }
-
-} */

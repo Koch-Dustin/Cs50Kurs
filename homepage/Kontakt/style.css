@@ -1,8 +1,3 @@
-* {
-    user-select: none;
-    
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -63,78 +58,19 @@ body {
     width: 80%;
     height: auto;
     background-color: rgb(36, 36, 36);
-    border: 1px solid white;
-    border-radius: 12px;
     margin-top: 8.5vh;
     display: flexbox;
     text-align: center;
     align-items: center;
-}
-
-.content_container img{
-    margin-top: -8px;
-}
-
-.content_container span {
-    color: white;
-    font-size: 1.5em;
-    margin-top: 100px;
-}
-
-.projekt_one_info_container {
-    display: none;
-    height: auto;
-    width: 60vh;
-    margin-left: auto;
-    margin-right: auto;
-    border: 3px solid white;
+    user-select: none;
+    border: 1px solid white;
     border-radius: 12px;
     padding-top: 20px;
 }
 
-.projekt_one_info_container span {
-    color: white;
-    font-size: 1.5em;
-    margin-top: 10px;
-}
-
-.projekt_two_info_container {
-    display: none;
+.contact_container {
     height: auto;
-    width: 60vh;
-    margin-left: auto;
-    margin-right: auto;
-    border: 3px solid white;
-    border-radius: 12px;
-    padding-top: 20px;
-}
-
-.projekt_two_info_container span {
-    color: white;
-    font-size: 1.5em;
-    margin-top: 10px;
-}
-
-.projekt_three_info_container {
-    display: none;
-    height: auto;
-    width: 60vh;
-    margin-left: auto;
-    margin-right: auto;
-    border: 3px solid white;
-    border-radius: 12px;
-    padding-top: 20px;
-}
-
-.projekt_three_info_container span {
-    color: white;
-    font-size: 1.5em;
-    margin-top: 10px;
-}
-
-.content_container i {
-    font-size: 1.5em;
-    font: weight 800px;
+    width: auto;
 }
 
 .content_container h2 {
@@ -142,7 +78,8 @@ body {
     margin-top: 2vh;
 }
 
-.content_container p {
+.contact_container span {
+    font-size: 1.35em;
+    user-select: text;
     color: white;
-    font-size: 1.2em;
 }
