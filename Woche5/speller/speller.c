@@ -97,10 +97,12 @@ void check_if_file_could_be_opened() {
         printf("Could not open %s.\n", text);
         unload();
 
-        return 1;
+        return;
     }
 
     printf("\nMISSPELLED WORDS\n\n");
+
+    return;
 }
 
 void check_for_possible_errors_in_input() {
