@@ -28,7 +28,7 @@ int main(void) {
 
     free_family(personPointer);
 
-    return;
+    return 0;
 }
 
 person *create_family(int generations) {
@@ -92,10 +92,13 @@ void print_family(person *personPointer, int generation) {
 char random_allele() {
     int randomNumber = rand() % 3;
 
+    char s = NULL;
+
     switch(randomNumber) {
 	    case 0: printf("A\n"); break;
 	    case 1: printf("B\n"); break;
 	    default: printf("O\n"); break;
     }
-    return;
+
+    return s;
 }
