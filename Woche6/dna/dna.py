@@ -20,7 +20,7 @@ def main():
 
     sequence
     max_counts = []
-    for i in range(1, len(reader.fieldnames)):
+    for i in range(1, len(file_reader.fieldnames)):
         str = reader.fieldnames[i]
         max_counts.append(0)
 
