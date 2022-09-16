@@ -1,13 +1,17 @@
 -- Infos zum Diebstahl nachschauen. Bei der gegeben Zeit und Ort.
-SELECT description FROM crime_scene_reports WHERE year = 2021 AND month = 7 AND day = 28 AND street = 'Humphrey Street';
-
+SELECT description 
+FROM crime_scene_reports 
+WHERE year = 2021 
+  AND month = 7 
+  AND day = 28 
+  AND street = 'Humphrey Street';
 
 -- Namen der zeugen finden
 SELECT name, transcript 
 FROM interviews 
 WHERE year = 2021 
-AND month = 7 
-AND day = 28;
+  AND month = 7 
+  AND day = 28;
 
 -- Gucken ob es mehrere gibt
 SELECT name 
@@ -24,7 +28,6 @@ SELECT name, transcript
  ORDER BY name;
  -- Zeugen: Eugene, Raymond und Ruth
 
-
 -- Gucken wer transaktionen gemacht hat
 SELECT account_number, amount
   FROM atm_transactions
@@ -33,6 +36,7 @@ SELECT account_number, amount
    AND day = 28
    AND atm_location = 'Leggett Street'
    AND transaction_type = 'withdraw';
+
 -- Namen finden die zu den kontonummern stimmen. Und zu Suspect List hinzufügen.
 SELECT name, atm_transactions.amount
   FROM people
@@ -46,8 +50,7 @@ SELECT name, atm_transactions.amount
    AND atm_transactions.atm_location = 'Leggett Street'
    AND atm_transactions.transaction_type = 'withdraw';
 
-
--- Raymond hört gespräch um ein Ticket für eine Flugbuchung für den frühsten Flug am July 29, 2021
+-- Raymond hört ein gespräch wo es um ein Ticket für den frühsten Flug am July 29, 2021 geht.
 -- Den landeort finden würde bedeuten den Fluchtort zu finden
 SELECT abbreviation, full_name, city
   FROM airports
@@ -65,6 +68,7 @@ SELECT flights.id, full_name, city, flights.hour, flights.minute
    AND flights.month = 7
    AND flights.day = 29
  ORDER BY flights.hour, flights.minute;
+
 -- Der erste flug kommt um 8:20 am LaGuardia Airport in New York City an (id- 36) Das könnte der Fluchtort sein
 -- Alle passagiere in die "Suspect list" hinzufügen und nach der Passport nummer sortieren
 SELECT passengers.flight_id, name, passengers.passport_number, passengers.seat
@@ -79,6 +83,7 @@ SELECT passengers.flight_id, name, passengers.passport_number, passengers.seat
    AND flights.hour = 8
    AND flights.minute = 20
  ORDER BY passengers.passport_number;
+
 -- Telefon verlauf überprüfen um die Person zu finden die das Ticket gebucht hat.
 -- Mögliche Namen der Anrufer herausfinden und in die "Suspect List" tun Sortieren nach anruf dauer
 SELECT name, phone_calls.duration
@@ -90,6 +95,7 @@ SELECT name, phone_calls.duration
    AND phone_calls.day = 28
    AND phone_calls.duration <= 60
  ORDER BY phone_calls.duration;
+
 -- Danach den Namen vom entnehmer herausfinden und nach llänge des anrufes Sortieren
 SELECT name, phone_calls.duration
   FROM people
@@ -100,7 +106,6 @@ SELECT name, phone_calls.duration
    AND phone_calls.day = 28
    AND phone_calls.duration <= 60
    ORDER BY phone_calls.duration;
-
 
 -- Ruth sagte das der Dieb mit einem Bäcker auto weg gefahren sei inerhalb von 10 Minuten. Fahrzeug besitzer anhand der Kennzeichen der Autos die in der Zeitspanne dort lang fuhren ermitteln und auf die "Suspect List" tun.
 SELECT name, bakery_security_logs.hour, bakery_security_logs.minute
