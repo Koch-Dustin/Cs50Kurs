@@ -18,7 +18,14 @@ def input_number(message):
 
 def check_which_type_card_is():
     if separate_digits % 10 == 0:
-        card_is_master_card = count == 16 and (first_two_digits == 51 or first_two_digits == 52 or first_two_digits == 53 or first_two_digits == 54 or first_two_digits == 55)
+        card_is_master_card = count == 16 and (
+                first_two_digits == 51
+                or first_two_digits == 52
+                or first_two_digits == 53
+                or first_two_digits == 54
+                or first_two_digits == 55
+        )
+
         if card_is_master_card:
             print("MasterCard")
             return
