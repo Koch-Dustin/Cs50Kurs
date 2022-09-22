@@ -12,5 +12,5 @@ SELECT DISTINCT name
             JOIN movies 
                 ON stars.movie_id = movies.id 
                 WHERE people.name = "Kevin Bacon" 
-                AND people.birth = 1958) 
-                AND people.name != "Kevon Bacon";
+                    AND people.birth = 1958) 
+                    AND people.name != "Kevon Bacon";
