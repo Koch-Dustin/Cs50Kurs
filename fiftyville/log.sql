@@ -45,10 +45,10 @@ SELECT name, atm_transactions.amount
   JOIN atm_transactions
     ON bank_accounts.account_number = atm_transactions.account_number
   WHERE atm_transactions.year = 2021
-   AND atm_transactions.month = 7
-   AND atm_transactions.day = 28
-   AND atm_transactions.atm_location = 'Leggett Street'
-   AND atm_transactions.transaction_type = 'withdraw';
+    AND atm_transactions.month = 7
+    AND atm_transactions.day = 28
+    AND atm_transactions.atm_location = 'Leggett Street'
+    AND atm_transactions.transaction_type = 'withdraw';
 
 -- Raymond hört ein gespräch wo es um ein Ticket für den frühsten Flug am July 29, 2021 geht.
 -- Den landeort finden würde bedeuten den Fluchtort zu finden
@@ -61,9 +61,9 @@ SELECT flights.id, full_name, city, flights.hour, flights.minute
   JOIN flights
     ON airports.id = flights.destination_airport_id
   WHERE flights.origin_airport_id =
-       (SELECT id
-          FROM airports
-         WHERE city = 'Fiftyville')
+    (SELECT id
+      FROM airports
+        WHERE city = 'Fiftyville')
     AND flights.year = 2021
     AND flights.month = 7
     AND flights.day = 29
@@ -82,7 +82,7 @@ SELECT passengers.flight_id, name, passengers.passport_number, passengers.seat
     AND flights.day = 29
     AND flights.hour = 8
     AND flights.minute = 20
-    ORDER BY passengers.passport_number;
+  ORDER BY passengers.passport_number;
 
 -- Telefon verlauf überprüfen um die Person zu finden die das Ticket gebucht hat.
 -- Mögliche Namen der Anrufer herausfinden und in die "Suspect List" tun Sortieren nach anruf dauer
@@ -94,7 +94,7 @@ SELECT name, phone_calls.duration
     AND phone_calls.month = 7
     AND phone_calls.day = 28
     AND phone_calls.duration <= 60
-    ORDER BY phone_calls.duration;
+  ORDER BY phone_calls.duration;
 
 -- Danach den Namen vom entnehmer herausfinden und nach llänge des anrufes Sortieren
 SELECT name, phone_calls.duration
@@ -105,7 +105,7 @@ SELECT name, phone_calls.duration
     AND phone_calls.month = 7
     AND phone_calls.day = 28
     AND phone_calls.duration <= 60
-    ORDER BY phone_calls.duration;
+  ORDER BY phone_calls.duration;
 
 -- Ruth sagte das der Dieb mit einem Bäcker auto weg gefahren sei inerhalb von 10 Minuten. Fahrzeug besitzer anhand der Kennzeichen der Autos die in der Zeitspanne dort lang fuhren ermitteln und auf die "Suspect List" tun.
 SELECT name, bakery_security_logs.hour, bakery_security_logs.minute
@@ -119,6 +119,6 @@ SELECT name, bakery_security_logs.hour, bakery_security_logs.minute
     AND bakery_security_logs.hour = 10
     AND bakery_security_logs.minute >= 15
     AND bakery_security_logs.minute <= 25
-    ORDER BY bakery_security_logs.minute;
+  ORDER BY bakery_security_logs.minute;
 
 -- Bruce war es, er kommt in allen listen vor. Er wird nach New York City geflohen sein. Und robin muss der Complize sein, da er der jenige ist der die Tickets gekauft hat.

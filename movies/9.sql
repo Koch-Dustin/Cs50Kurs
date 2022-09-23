@@ -5,4 +5,4 @@ SELECT DISTINCT people.name, people.birth
     JOIN movies 
         ON movies.id = stars.movie_id 
     WHERE movies.year = 2004 
-        ORDER BY birth;
+    ORDER BY birth;
