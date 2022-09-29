@@ -1,115 +1,119 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-        <link href="styles.css" rel="stylesheet">
-        <title>Trivia!</title>
-        <script>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <title>Trivia!</title>
+    <script>
+      // Part 1
+      let IncorrectPartOne = false;
 
-            // Part 1
-            let IncorrectPartOne = false;
+      function change_content_part_one(txt) {
+        document.getElementById("CorrectAnswer").innerHTML = txt;
+      }
 
-            function change_content_part_one(txt){
-                document.getElementById('CorrectAnswer').innerHTML = txt;
-            }
+      function change_display_part_one(display) {
+        const AnswerAlert = document.getElementById("CorrectAnswer");
 
-            function change_display_part_one(display) {
-                const AnswerAlert = document.getElementById("CorrectAnswer");
+        if (IncorrectPartOne == false) {
+          change_content_part_one("Correct");
+          AnswerAlert.style.color = "green";
+        } else {
+          change_content_part_one("Incorrect");
+          AnswerAlert.style.color = "red";
+        }
+        AnswerAlert.style.display = "" + display;
+      }
 
-                if (IncorrectPartOne == false) {
-                    change_content_part_one("Correct");
-                    AnswerAlert.style.color = "green";
-                } else {
-                    change_content_part_one("Incorrect");
-                AnswerAlert.style.color = "red";
+      function answer_for_button_one_part_one() {
+        IncorrectPartOne = true;
+        change_display_part_one("block");
+      }
 
-                }
-                AnswerAlert.style.display = "" + display;
-            }
+      function answer_on_click(isCorrect) {
+        IncorrectPartOne = true;
+        if (isCorrect) IncorrectPartOne = false;
+        change_display_part_one("block");
+      }
 
-            function answer_for_button_one_part_one() {
-                IncorrectPartOne = true;
-                change_display_part_one("block")
+      // Part 2
 
-            }
+      let IncorrectPartTwo = false;
 
-            function answer_on_click(isCorrect) {
-                IncorrectPartOne = true;
-                if (isCorrect) IncorrectPartOne = false;
-                change_display_part_one("block")
-            }
+      answer = 11.1;
 
-            // Part 2
+      function changeContent(txt) {
+        document.getElementById("IncorrectAnswerTwo").innerHTML = txt;
+      }
 
-            let IncorrectPartTwo = false;
+      function change_display(display) {
+        const IncorrectAnswerAlert =
+          document.getElementById("IncorrectAnswerTwo");
 
-            answer = 11.1;
+        if (IncorrectPartTwo == false) {
+          changeContent("Correct");
+          IncorrectAnswerAlert.style.color = "green";
+        } else {
+          changeContent("Incorrect");
+          IncorrectAnswerAlert.style.color = "red";
+        }
 
-            function changeContent(txt){
-                document.getElementById('IncorrectAnswerTwo').innerHTML = txt;
-            }
+        IncorrectAnswerAlert.style.display = "" + display;
+      }
 
-            function change_display(display) {
-                const IncorrectAnswerAlert = document.getElementById("IncorrectAnswerTwo");
+      function submit_answer() {
+        let user_input = document.getElementById("users_input").value;
+        if (user_input == answer) {
+          IncorrectPartTwo = false;
+        } else {
+          IncorrectPartTwo = true;
+        }
 
-                if (IncorrectPartTwo == false) {
-                    changeContent("Correct");
-                    IncorrectAnswerAlert.style.color = "green";
-                } else {
-                    changeContent("Incorrect");
-                    IncorrectAnswerAlert.style.color = "red";
+        if (IncorrectPartTwo) {
+          change_display("block");
+        }
 
-                }
-                
-                IncorrectAnswerAlert.style.display = "" + display;
-            }
+        change_display("block");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Trivia!</h1>
+    </div>
 
-            function submit_answer() {
-                let user_input = document.getElementById("users_input").value;
-                if (user_input == answer) {
-                    IncorrectPartTwo = false;
-                } else {
-                    IncorrectPartTwo = true;
-                }
+    <div class="container">
+      <div class="section">
+        <h2>Part 1: Multiple Choice</h2>
+        <hr />
+        <h4 id="CorrectAnswer">Incorrect</h4>
+        <h3>Was passt nicht zu den anderen?</h3>
+        <button id="ButtonOne" onclick="answer_on_click(false)">
+          Whatsapp
+        </button>
+        <button id="ButtonTwo" onclick="answer_on_click(false)">
+          Microsoft-Teams
+        </button>
+        <button id="ButtonThree" onclick="answer_on_click(false)">
+          Facebook
+        </button>
+        <button id="ButtonFour" onclick="answer_on_click(true)">tumblr</button>
+      </div>
 
-                if (IncorrectPartTwo) {
-                    change_display("block");
-                }
+      <div class="section">
+        <h2>Part 2: Free Response</h2>
+        <hr />
+        <!-- TODO: Add free response question here -->
+        <h4 id="IncorrectAnswerTwo">Incorrect</h4>
+        <h3>What is 3 + 5 * 2.1 - 3 / 1.25?</h3>
 
-                change_display("block");
-            }
-
-
-        </script>
-    </head>
-    <body>
-        <div class="header">
-            <h1>Trivia!</h1>
-        </div>
-
-        <div class="container">
-            <div class="section">
-                <h2>Part 1: Multiple Choice </h2>
-                <hr>
-                <h4 id="CorrectAnswer">Incorrect</h4>
-                <h3>Was passt nicht zu den anderen?</h3>
-                <button id="ButtonOne" onclick="answer_on_click(false)">Whatsapp</button>
-                <button id="ButtonTwo" onclick="answer_on_click(false)">Microsoft-Teams</button>
-                <button id="ButtonThree" onclick="answer_on_click(false)">Facebook</button>
-                <button id="ButtonFour" onclick="answer_on_click(true)">tumblr</button>
-            </div>
-
-            <div class="section">
-                <h2>Part 2: Free Response</h2>
-                <hr>
-                <!-- TODO: Add free response question here -->
-                <h4 id="IncorrectAnswerTwo">Incorrect</h4>
-                <h3>What is 3 + 5 * 2.1 - 3 / 1.25?</h3>
-
-                <input type="text" id="users_input">
-                <button id="confirm" onclick="submit_answer()">Submit</button>
-            </div>
-        </div>
-    </body>
+        <input type="text" id="users_input" />
+        <button id="confirm" onclick="submit_answer()">Submit</button>
+      </div>
+    </div>
+  </body>
 </html>
