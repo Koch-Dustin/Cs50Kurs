@@ -26,7 +26,7 @@ SELECT name, transcript
         AND day = 28
         AND transcript LIKE '%bakery%'
     ORDER BY name;
- -- Zeugen: Eugene, Raymond und Ruth
+-- Zeugen: Eugene, Raymond und Ruth
 
 -- Gucken wer transaktionen gemacht hat
 SELECT account_number, amount
@@ -55,7 +55,7 @@ SELECT name, atm_transactions.amount
 SELECT abbreviation, full_name, city
     FROM airports
     WHERE city = 'Fiftyville';
- -- Flüge vom 29. July überprüfen und nach Zeit sortieren
+-- Flüge vom 29. July überprüfen und nach Zeit sortieren
 SELECT flights.id, full_name, city, flights.hour, flights.minute
     FROM airports
     JOIN flights
