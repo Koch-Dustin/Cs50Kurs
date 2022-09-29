@@ -7,7 +7,7 @@
         <title>Trivia!</title>
         <script>
 
-            // TODO Part 1
+            // Part 1
             let IncorrectPartOne = false;
 
             function change_content_part_one(txt){
@@ -17,10 +17,10 @@
             function change_display_part_one(display) {
                 const AnswerAlert = document.getElementById("CorrectAnswer");
 
-                if(IncorrectPartOne == false) {
+                if (IncorrectPartOne == false) {
                     change_content_part_one("Correct");
                     AnswerAlert.style.color = "green";
-                }else {
+                } else {
                     change_content_part_one("Incorrect");
                 AnswerAlert.style.color = "red";
 
@@ -40,7 +40,7 @@
                 change_display_part_one("block")
             }
 
-            // TODO Part 2
+            // Part 2
 
             let IncorrectPartTwo = false;
 
@@ -53,10 +53,10 @@
             function change_display(display) {
                 const IncorrectAnswerAlert = document.getElementById("IncorrectAnswerTwo");
 
-                if(IncorrectPartTwo == false) {
+                if (IncorrectPartTwo == false) {
                     changeContent("Correct");
                     IncorrectAnswerAlert.style.color = "green";
-                }else {
+                } else {
                     changeContent("Incorrect");
                     IncorrectAnswerAlert.style.color = "red";
 
@@ -67,13 +67,13 @@
 
             function submit_answer() {
                 let user_input = document.getElementById("users_input").value;
-                if(user_input == answer) {
+                if (user_input == answer) {
                     IncorrectPartTwo = false;
-                }else {
+                } else {
                     IncorrectPartTwo = true;
                 }
 
-                if(IncorrectPartTwo) {
+                if (IncorrectPartTwo) {
                     change_display("block");
                 }
 

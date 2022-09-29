@@ -61,7 +61,7 @@ input[type="text"]:hover {
     transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
 }
 
-.section h4{
+.section h4 {
     display: none;
     color: red;
 }
