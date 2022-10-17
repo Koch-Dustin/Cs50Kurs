@@ -12,7 +12,7 @@ body {
   justify-content: center;
 }
 
-.hyperlinkbar {
+.hyper-link-bar {
   position: absolute;
   margin-right: auto;
   height: 10%;
@@ -28,12 +28,12 @@ body {
   border-bottom: 1px solid white;
 }
 
-.hyperlinkbar nav {
+.hyper-link-bar nav {
   position: absolute;
   width: auto;
 }
 
-.hyperlinkbar a {
+.hyper-link-bar a {
   position: relative;
   font-size: 1.5em;
   font-weight: 800px;
@@ -47,11 +47,11 @@ body {
   margin-right: 10px;
 }
 
-.hyperlinkbar a:hover {
+.hyper-link-bar a:hover {
   background-color: rgb(59, 59, 59);
 }
 
-.content_container {
+.content-container {
   margin-left: auto;
   margin-right: auto;
   width: 80%;
@@ -67,17 +67,17 @@ body {
   padding-top: 20px;
 }
 
-.contact_container {
+.contact-container {
   height: auto;
   width: auto;
 }
 
-.content_container h2 {
+.content-container h2 {
   color: white;
   margin-top: 2vh;
 }
 
-.contact_container span {
+.contact-container span {
   font-size: 1.35em;
   user-select: text;
   color: white;

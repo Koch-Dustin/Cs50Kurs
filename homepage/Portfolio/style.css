@@ -16,7 +16,7 @@ body {
   justify-content: center;
 }
 
-.hyperlinkbar {
+.hyper-link-bar {
   position: absolute;
   margin-right: auto;
   height: 10%;
@@ -32,12 +32,12 @@ body {
   border-bottom: 1px solid white;
 }
 
-.hyperlinkbar nav {
+.hyper-link-bar nav {
   position: absolute;
   width: auto;
 }
 
-.hyperlinkbar a {
+.hyper-link-bar a {
   position: relative;
   font-size: 1.5em;
   font-weight: 800px;
@@ -51,11 +51,11 @@ body {
   margin-right: 10px;
 }
 
-.hyperlinkbar a:hover {
+.hyper-link-bar a:hover {
   background-color: rgb(59, 59, 59);
 }
 
-.content_container {
+.content-container {
   margin-left: auto;
   margin-right: auto;
   width: 80%;
@@ -69,17 +69,17 @@ body {
   align-items: center;
 }
 
-.content_container img {
+.content-container img {
   margin-top: -8px;
 }
 
-.content_container span {
+.content-container span {
   color: white;
   font-size: 1.5em;
   margin-top: 100px;
 }
 
-.projekt_one_info_container {
+.projekt-one-info-container {
   display: none;
   height: auto;
   width: 60vh;
@@ -90,13 +90,13 @@ body {
   padding-top: 20px;
 }
 
-.projekt_one_info_container span {
+.projekt-one-info-container span {
   color: white;
   font-size: 1.5em;
   margin-top: 10px;
 }
 
-.projekt_two_info_container {
+.projekt-two-info-container {
   display: none;
   height: auto;
   width: 60vh;
@@ -107,13 +107,13 @@ body {
   padding-top: 20px;
 }
 
-.projekt_two_info_container span {
+.projekt-two-info-container span {
   color: white;
   font-size: 1.5em;
   margin-top: 10px;
 }
 
-.projekt_three_info_container {
+.projekt-three-info-container {
   display: none;
   height: auto;
   width: 60vh;
@@ -124,23 +124,23 @@ body {
   padding-top: 20px;
 }
 
-.projekt_three_info_container span {
+.projekt-three-info-container span {
   color: white;
   font-size: 1.5em;
   margin-top: 10px;
 }
 
-.content_container i {
+.content-container i {
   font-size: 1.5em;
   font: weight 800px;
 }
 
-.content_container h2 {
+.content-container h2 {
   color: white;
   margin-top: 2vh;
 }
 
-.content_container p {
+.content-container p {
   color: white;
   font-size: 1.2em;
 }
